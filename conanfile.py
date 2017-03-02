@@ -27,9 +27,7 @@ class ArbitraryName(ConanFile):
     def package(self):
         self.copy(pattern="*.h*", dst="include", src="include", keep_path=True)
         self.copy(pattern="*.a", dst="lib", src="install/lib", keep_path=False)
-        self.copy(pattern="*.so.", dst="lib", src="install/lib", keep_path=False)
         self.copy(pattern="*.lib", dst="lib", src="install/lib", keep_path=False)
-        self.copy(pattern="*.dll", dst="bin", src="install/lib", keep_path=False)
         self.copy(pattern="*.pdb", dst="bin", src="install/lib", keep_path=False)
 
     def package_info(self):
