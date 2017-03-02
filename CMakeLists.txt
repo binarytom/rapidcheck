@@ -57,6 +57,9 @@ add_library(rapidcheck
   src/gen/detail/ScaleInteger.cpp
   )
 
+# put the library in CMAKE_INSTALL_PREFIX/lib so that the Conan script can find it in a portable location
+install(TARGETS rapidcheck DESTINATION lib)
+
 # Random is used a LOT so it should preferrably be really fast.
 if(MSVC)
   set_property(SOURCE src/Random.cpp
