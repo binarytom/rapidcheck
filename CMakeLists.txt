@@ -13,6 +13,9 @@ if(MSVC)
   # /RTC* is incompatible with /O2 needed for Random.cpp to speed it up
   string(REGEX REPLACE "/RTC(su|[1su])" ""
     CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG}")
+
+  #use multiple CPU cores to speed up the build:
+  add_definitions(/MP)
 else()
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Werror -Wno-missing-braces -std=c++11")
 endif()
