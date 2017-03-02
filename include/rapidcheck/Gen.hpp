@@ -75,9 +75,9 @@ Shrinkable<T> Gen<T>::operator()(const Random &random, int size) const
       // MSVC HACK: the following is required for MSVC to stop complaining
       //            about missing return value. Will never be reached, of
       //            course.
-#ifdef _MSC_VER
+#if defined(_MSC_VER) && (_MSC_VER < 1900)
       throw nullptr;
-#endif // _MSC_VER
+#endif
     });
   }
 }
